@@ -64,6 +64,19 @@ export default function Home() {
             <span className="nav-overlay__num">02</span>
             Contact
           </Link>
+          <a
+            href="https://my-criative.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-overlay__link"
+            tabIndex={menuOpen ? 0 : -1}
+          >
+            <span className="nav-overlay__num">03</span>
+            <span className="nav-overlay__link-body">
+              Creative Lab
+              <span className="nav-overlay__link-desc">新しい技術の検証やアニメーションの実装実験を行う専用のラボサイトです</span>
+            </span>
+          </a>
         </nav>
         <button
           className="nav-overlay__backdrop"

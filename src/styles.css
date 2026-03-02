@@ -272,7 +272,7 @@ ol {
 
 .nav-overlay__link {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 14px;
   font-family: var(--font-mono);
   font-size: clamp(1.6rem, 4vw, 2.4rem);
@@ -306,11 +306,33 @@ ol {
   transition-delay: 0.26s;
 }
 
+.nav-overlay--open .nav-overlay__link:nth-child(3) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.34s;
+}
+
+.nav-overlay__link-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-overlay__link-desc {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.4;
+}
+
 .nav-overlay__num {
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   color: rgba(255, 255, 255, 0.35);
   font-weight: 400;
+  padding-top: 0.5rem;
 }
 
 /* =========================================
