@@ -23,14 +23,14 @@ const questions = [
 ];
 
 const results = [
-  { type: "A", title: "織田信長でした🌈", image: "/image/type-a.png", minScore: 0, maxScore: 4 },
-  { type: "B", title: "坂本龍馬でした🌈", image: "/image/type-b.png", minScore: 5, maxScore: 8 },
-  { type: "C", title: "諸葛孔明でした🌈", image: "/image/type-c.png", minScore: 9, maxScore: 12 },
-  { type: "D", title: "豊臣秀吉でした🌈", image: "/image/type-d.png", minScore: 13, maxScore: 16 },
-  { type: "E", title: "ダ・ヴィンチでした🌈", image: "/image/type-e.png", minScore: 17, maxScore: 20 },
-  { type: "F", title: "ナイチンゲールでした🌈", image: "/image/type-n.png", minScore: 21, maxScore: 24 },
-  { type: "G", title: "エジソンでした🌈", image: "/image/type-g.png", minScore: 25, maxScore: 28 },
-  { type: "H", title: "マリー・アントワネットでした🌈", image: "/image/type-h.png", minScore: 29, maxScore: 999 },
+  { type: "A", title: "織田信長でした🌈", image: "/image/type-a.png", minScore: 9, maxScore: 12 },
+  { type: "B", title: "坂本龍馬でした🌈", image: "/image/type-b.png", minScore: 13, maxScore: 16 },
+  { type: "C", title: "諸葛孔明でした🌈", image: "/image/type-c.png", minScore: 17, maxScore: 20 },
+  { type: "D", title: "豊臣秀吉でした🌈", image: "/image/type-d.png", minScore: 21, maxScore: 24 },
+  { type: "E", title: "ダ・ヴィンチでした🌈", image: "/image/type-e.png", minScore: 25, maxScore: 28 },
+  { type: "F", title: "ナイチンゲールでした🌈", image: "/image/type-n.png", minScore: 29, maxScore: 31 },
+  { type: "G", title: "エジソンでした🌈", image: "/image/type-g.png", minScore: 32, maxScore: 34 },
+  { type: "H", title: "マリー・アントワネットでした🌈", image: "/image/type-h.png", minScore: 35, maxScore: 999 },
 ];
 // 中身が書き換わる箱
 
