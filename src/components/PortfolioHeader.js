@@ -43,10 +43,24 @@ export default function PortfolioHeader() {
                         <span className="nav-overlay__num">01</span>
                         Deploy Projects
                     </Link>
-                    <Link to="/contact" className="nav-overlay__link" tabIndex={menuOpen ? 0 : -1}>
+                    <Link to="/lp-works" className="nav-overlay__link" tabIndex={menuOpen ? 0 : -1}>
                         <span className="nav-overlay__num">02</span>
+                        LP Works
+                    </Link>
+                    <Link to="/contact" className="nav-overlay__link" tabIndex={menuOpen ? 0 : -1}>
+                        <span className="nav-overlay__num">03</span>
                         Contact
                     </Link>
+                    <a
+                        href="https://my-criative.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="nav-overlay__link"
+                        tabIndex={menuOpen ? 0 : -1}
+                    >
+                        <span className="nav-overlay__num">04</span>
+                        Creative Lab
+                    </a>
                 </nav>
                 {/* Dim backdrop click to close */}
                 <button className="nav-overlay__backdrop" onClick={() => setMenuOpen(false)} aria-label="Close menu" tabIndex={-1} />

@@ -4,6 +4,7 @@ import Home from "./Home";
 import Diagnosis from "./Diagnosis";
 import AdChatbot from "./AdChatbot";
 import DeployProjects from "./DeployProjects";
+import LpWorks from "./LpWorks";
 import FigmaLayerToYaml from "./projects/FigmaLayerToYaml";
 import PersonalityDiagnosis from "./projects/PersonalityDiagnosis";
 import FoodSwipe from "./projects/FoodSwipe";
@@ -16,6 +17,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/deploy-projects" element={<DeployProjects />} />
+        <Route path="/lp-works" element={<LpWorks />} />
         <Route path="/projects/figma-layer-to-yaml" element={<FigmaLayerToYaml />} />
         <Route path="/projects/personality-diagnosis" element={<PersonalityDiagnosis />} />
         <Route path="/projects/food-swipe" element={<FoodSwipe />} />

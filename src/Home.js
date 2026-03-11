@@ -60,8 +60,12 @@ export default function Home() {
             <span className="nav-overlay__num">01</span>
             Deploy Projects
           </Link>
-          <Link to="/contact" className="nav-overlay__link" tabIndex={menuOpen ? 0 : -1}>
+          <Link to="/lp-works" className="nav-overlay__link" tabIndex={menuOpen ? 0 : -1}>
             <span className="nav-overlay__num">02</span>
+            LP Works
+          </Link>
+          <Link to="/contact" className="nav-overlay__link" tabIndex={menuOpen ? 0 : -1}>
+            <span className="nav-overlay__num">03</span>
             Contact
           </Link>
           <a
@@ -71,11 +75,8 @@ export default function Home() {
             className="nav-overlay__link"
             tabIndex={menuOpen ? 0 : -1}
           >
-            <span className="nav-overlay__num">03</span>
-            <span className="nav-overlay__link-body">
-              Creative Lab
-              <span className="nav-overlay__link-desc">新しい技術の検証やアニメーションの実装実験を行う専用のラボサイトです</span>
-            </span>
+            <span className="nav-overlay__num">04</span>
+            Creative Lab
           </a>
         </nav>
         <button

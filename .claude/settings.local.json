@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"C:\\\\Users\\\\hishi\\\\Documents\\\\ポートフォリオ2026\\\\portfolio\\\\my-portfolio-2026\" && npm run dev)"
+    ]
+  }
+}
