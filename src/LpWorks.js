@@ -20,7 +20,7 @@ const LP_PROJECTS = [
     {
         id: 'kodomoshokudo-lp',
         name: '子ども食堂LP',
-        desc: 'HTML / CSS / JavaScript',
+        desc: 'Typescript / tailwind css / tailwind css',
         image: '/image/kodomo.jpg',
         url: 'https://kodomoshokudo-lp.vercel.app/',
     },
