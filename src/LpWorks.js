@@ -8,7 +8,7 @@ const LP_PROJECTS = [
         name: 'ジムLP1',
         desc: 'HTML / CSS / JavaScript',
         image: '/image/gym-lp.png',
-        url: 'https://gym-b1yswdrex-hishikawas-projects.vercel.app',
+        url: 'https://gym-lp-gules.vercel.app/',
     },
     {
         id: 'gym-lp2',
