@@ -1,7 +1,19 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cd \"C:\\\\Users\\\\hishi\\\\Documents\\\\ポートフォリオ2026\\\\portfolio\\\\my-portfolio-2026\" && npm run dev)"
+      "Bash(cd \"C:\\\\Users\\\\hishi\\\\Documents\\\\ポートフォリオ2026\\\\portfolio\\\\my-portfolio-2026\" && npm run dev)",
+      "Bash(cd \"C:/Users/hishi/Documents/ポートフォリオ2026/portfolio/my-portfolio-next\" && npm install 2>&1)",
+      "Bash(cd \"C:/Users/hishi/Documents/ポートフォリオ2026/portfolio/my-portfolio-next\" && npm audit 2>&1)",
+      "Bash(cd \"C:/Users/hishi/Documents/ポートフォリオ2026/portfolio/my-portfolio-next\" && npm run build 2>&1 | tail -40)",
+      "Read(//c/Users/hishi/Documents/portfolio2026/hishikawa-portfolio/**)",
+      "Bash(npm install:*)",
+      "Bash(cd \"C:/Users/hishi/Documents/portfolio2026/hishikawa-portfolio\" && npm run build 2>&1)",
+      "Bash(cd \"C:/Users/hishi/Documents/portfolio2026/hishikawa-portfolio\" && npm run build 2>&1 | tail -20)",
+      "Bash(find \"C:\\\\Users\\\\hishi\\\\Documents\\\\portfolio2026\\\\portfolio\\(tech\\)\\\\src\" -type f -name \"*.js\")",
+      "Bash(cd:*)",
+      "Bash(ls \"C:\\\\Users\\\\hishi\\\\Documents\\\\portfolio2026\\\\portfolio\\(tech\\)\\\\src\")",
+      "Bash(ls \"C:\\\\Users\\\\hishi\\\\Documents\\\\portfolio2026\\\\portfolio\\(tech\\)\\\\src\\\\components\")",
+      "Bash(ls \"C:\\\\Users\\\\hishi\\\\Documents\\\\portfolio2026\\\\portfolio\\(tech\\)\\\\src\\\\projects\")"
     ]
   }
 }

@@ -1,14 +1,9 @@
 import React from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Home";
-import Diagnosis from "./Diagnosis";
-import AdChatbot from "./AdChatbot";
-import DeployProjects from "./DeployProjects";
-import LpWorks from "./LpWorks";
-import FigmaLayerToYaml from "./projects/FigmaLayerToYaml";
-import PersonalityDiagnosis from "./projects/PersonalityDiagnosis";
-import FoodSwipe from "./projects/FoodSwipe";
+import About from "./About";
 import Contact from "./Contact";
+import WorkDetail from "./WorkDetail";
 import "./styles.css";
 
 export default function App() {
@@ -16,15 +11,9 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/deploy-projects" element={<DeployProjects />} />
-        <Route path="/lp-works" element={<LpWorks />} />
-        <Route path="/projects/figma-layer-to-yaml" element={<FigmaLayerToYaml />} />
-        <Route path="/projects/personality-diagnosis" element={<PersonalityDiagnosis />} />
-        <Route path="/projects/food-swipe" element={<FoodSwipe />} />
+        <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        {/* Legacy demo pages */}
-        <Route path="/diagnosis" element={<Diagnosis />} />
-        <Route path="/ad-chatbot" element={<AdChatbot />} />
+        <Route path="/works/:id" element={<WorkDetail />} />
       </Routes>
     </Router>
   );

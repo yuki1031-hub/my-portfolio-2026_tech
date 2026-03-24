@@ -1,7 +1,15 @@
 /* =========================================
    Global Reset & Base
    ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap');
+
+@font-face {
+   font-family: 'Google Sans Flex';
+  src: url('./fonts/GoogleSansFlext.ttf') format('truetype');
+  font-weight: 100 900;  
+  font-style: normal;
+  font-display: swap;
+}
 
 *,
 *::before,
@@ -19,7 +27,7 @@ body,
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Serif JP", sans-serif;
   background: #000;
   color: #fff;
   line-height: 1.6;
@@ -46,8 +54,8 @@ ol {
   --color-text: #ffffff;
   --color-text-dim: rgba(255, 255, 255, 0.45);
   --color-accent: #fff;
-  --font-sans: 'Inter', sans-serif;
-  --font-mono: 'Space Mono', monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Serif JP", sans-serif;
+  --font-mono: 'Google Sans Flex', sans-serif;  
   --header-height: 60px;
   --max-width: 1100px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -80,7 +88,7 @@ ol {
   padding: 0 40px;
   /* Always transparent — z-index keeps it above overlay backdrop */
   background: transparent;
-  mix-blend-mode: normal;
+  mix-blend-mode: difference;
 }
 
 .portfolio-header__logo {
@@ -386,9 +394,8 @@ ol {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: #000;
-  /* Large black margins around the canvas */
   padding: 40px 64px 36px;
   box-sizing: border-box;
   gap: 12px;
@@ -418,12 +425,12 @@ ol {
 
 /* Canvas frame — fills the available space between top and bottom bars */
 .home-page__frame {
+    
   position: relative;
-  flex: 1;
-  overflow: hidden;
+  flex: none;
+  height: 25vh;
+  
   border-radius: 1px;
-  min-height: 0;
-  /* important for flex shrink */
 }
 
 .home-page__canvas {
@@ -436,26 +443,148 @@ ol {
 /* Name overlay — centered within the canvas frame */
 .home-page__content {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
   z-index: 10;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   pointer-events: none;
-  width: 100%;
+  mix-blend-mode: difference;
 }
 
 .home-page__name {
   font-family: var(--font-mono);
-  font-size: clamp(1.4rem, 3.5vw, 3.2rem);
-  font-weight: 700;
+  font-size: clamp(1.2rem, 2.8vw, 2.4rem);
+  font-weight: 400;
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1.6;
   color: #fff;
-  mix-blend-mode: difference;
-  white-space: nowrap;
+
+  white-space: pre;
+  text-align: left;
 }
 
+.typing-text {
+  display: inline-block;
+  text-align: center;
+}
+
+.typing-line {
+  display: block;
+  min-height: 1.6em;
+}
+
+/* Gradient blinking cursor */
+@keyframes cursor-blink {
+  0%, 45% { opacity: 1; }
+  55%, 100% { opacity: 0; }
+}
+
+@keyframes cursor-gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  vertical-align: text-bottom;
+  margin-right: 1px;
+  background: linear-gradient(180deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #c77dff);
+  background-size: 100% 400%;
+  animation:
+    cursor-blink 0.9s ease-in-out infinite,
+    cursor-gradient-shift 2s ease infinite;
+  border-radius: 1px;
+}
+.work-detail-page {
+  background: #fff !important;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* =========================================
+   Works Grid (Home Page)
+   ========================================= */
+.works-section {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 80px;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.works-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: #111;
+}
+
+.works-card__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transition: filter var(--transition);
+}
+
+.works-card:hover .works-card__img {
+  filter: brightness(0.55);
+}
+
+.works-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.works-card__more {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  padding-bottom: 2px;
+  transition: opacity var(--transition);
+}
+
+.works-card__more:hover {
+  opacity: 0.7;
+}
+
+.works-card__close {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.works-card__close:hover {
+  color: #fff;
+}
 
 /* Bottom bar: Deploy Projects button in the bottom-right margin */
 .home-bottom-bar {
@@ -761,42 +890,205 @@ ol {
    ========================================= */
 .contact-page {
   min-height: 100vh;
-  padding-top: var(--header-height);
+  padding-top: calc(var(--header-height) + 60px);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   background: var(--color-surface);
 }
 
 .contact-inner {
-  text-align: center;
-  padding: 40px;
+  width: 100%;
+  max-width: 560px;
+  padding: 0 40px 60px;
 }
 
-.contact-eyebrow {
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-label {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-text-dim);
-  margin-bottom: 24px;
 }
 
-.contact-heading {
+.contact-input {
+  background: #fff;
+  border: none;
+  color: #111;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding: 12px 14px;
+  outline: none;
+  transition: box-shadow var(--transition);
+}
+
+.contact-input:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6);
+}
+
+.contact-textarea {
+  background: #fff;
+  border: none;
+  color: #111;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding: 12px 14px;
+  outline: none;
+  resize: none;
+  min-height: 120px;
+  transition: box-shadow var(--transition);
+}
+
+.contact-textarea:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6);
+}
+
+.contact-submit {
+  align-self: flex-start;
   font-family: var(--font-mono);
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin-bottom: 48px;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+  margin-top: 8px;
 }
 
-.contact-links {
+.contact-submit:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* =========================================
+   About Page
+   ========================================= */
+.about-page {
+  min-height: 100vh;
+  padding-top: calc(var(--header-height) + 60px);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: var(--color-surface);
+}
+
+.about-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40px 60px;
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+}
+
+.about-image-wrap {
+  margin-bottom: 40px;
+}
+
+.about-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(20%);
+}
+
+.about-text1 {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 56px;
+}
+
+.about-career {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  text-align: left;
+  border-top: 1px solid var(--color-border);
+  padding-top: 40px;
+}
+
+.about-career-item {
+  display: flex;
   gap: 24px;
-  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.about-career-period {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-dim);
+  white-space: nowrap;
+  min-width: 90px;
+  padding-top: 2px;
+}
+
+.about-career-body {
+  flex: 1;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 32px;
+}
+
+.about-career-item:last-child .about-career-body {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.about-career-company {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.about-career-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-dim);
+  line-height: 1.7;
+}
+
+/* =========================================
+   Back button footer (About / Contact)
+   ========================================= */
+.page-footer-back {
+  width: 100%;
+  max-width: 560px;
+  padding: 0 40px 60px;
+}
+
+.back-btn {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.back-btn:hover {
+  color: #fff;
 }
 
 /* =========================================
@@ -1084,6 +1376,30 @@ ol {
   color: #161616;
 }
 
+.works-card__info {
+  padding: 12px;
+}
+
+.works-card__title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 0 8px;
+}
+
+.works-card__tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.works-card__tag {
+  background: #fff;
+  color: #111;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
 /* =========================================
    Responsive
    ========================================= */
@@ -1105,6 +1421,10 @@ ol {
   }
 
   .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .works-grid {
     grid-template-columns: 1fr;
   }
 

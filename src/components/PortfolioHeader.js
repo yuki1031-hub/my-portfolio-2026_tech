@@ -22,7 +22,7 @@ export default function PortfolioHeader() {
             <header className="portfolio-header">
                 {/* Logo */}
                 <Link to="/" className="portfolio-header__logo">
-                    Hishikawa Yuki
+                    HISHI
                 </Link>
 
                 {/* Hamburger button — single animated line */}
@@ -39,28 +39,14 @@ export default function PortfolioHeader() {
             {/* Full-screen overlay menu */}
             <div className={`nav-overlay${menuOpen ? ' nav-overlay--open' : ''}`} aria-hidden={!menuOpen}>
                 <nav className="nav-overlay__menu">
-                    <Link to="/deploy-projects" className="nav-overlay__link" tabIndex={menuOpen ? 0 : -1}>
+                    <Link to="/about" className="nav-overlay__link" tabIndex={menuOpen ? 0 : -1}>
                         <span className="nav-overlay__num">01</span>
-                        Deploy Projects
-                    </Link>
-                    <Link to="/lp-works" className="nav-overlay__link" tabIndex={menuOpen ? 0 : -1}>
-                        <span className="nav-overlay__num">02</span>
-                        LP Works
+                        About
                     </Link>
                     <Link to="/contact" className="nav-overlay__link" tabIndex={menuOpen ? 0 : -1}>
-                        <span className="nav-overlay__num">03</span>
+                        <span className="nav-overlay__num">02</span>
                         Contact
                     </Link>
-                    <a
-                        href="https://my-criative.vercel.app/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="nav-overlay__link"
-                        tabIndex={menuOpen ? 0 : -1}
-                    >
-                        <span className="nav-overlay__num">04</span>
-                        Creative Lab
-                    </a>
                 </nav>
                 {/* Dim backdrop click to close */}
                 <button className="nav-overlay__backdrop" onClick={() => setMenuOpen(false)} aria-label="Close menu" tabIndex={-1} />
