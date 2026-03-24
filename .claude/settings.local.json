@@ -1,6 +1,7 @@
 {
   "permissions": {
     "allow": [
+<<<<<<< HEAD
       "Bash(cd \"C:\\\\Users\\\\hishi\\\\Documents\\\\ポートフォリオ2026\\\\portfolio\\\\my-portfolio-2026\" && npm run dev)",
       "Bash(cd \"C:/Users/hishi/Documents/ポートフォリオ2026/portfolio/my-portfolio-next\" && npm install 2>&1)",
       "Bash(cd \"C:/Users/hishi/Documents/ポートフォリオ2026/portfolio/my-portfolio-next\" && npm audit 2>&1)",
@@ -14,6 +15,11 @@
       "Bash(ls \"C:\\\\Users\\\\hishi\\\\Documents\\\\portfolio2026\\\\portfolio\\(tech\\)\\\\src\")",
       "Bash(ls \"C:\\\\Users\\\\hishi\\\\Documents\\\\portfolio2026\\\\portfolio\\(tech\\)\\\\src\\\\components\")",
       "Bash(ls \"C:\\\\Users\\\\hishi\\\\Documents\\\\portfolio2026\\\\portfolio\\(tech\\)\\\\src\\\\projects\")"
+=======
+      "Bash(find \"C:\\\\Users\\\\hishi\\\\Documents\\\\portfolio2026\\\\portfolio\\(gameboy\\)\" -type f -name \"*.html\" -o -name \"*.css\" -o -name \"*.js\" -o -name \"*.json\")",
+      "Bash(npx tsc:*)",
+      "Bash(ls:*)"
+>>>>>>> 2baf11a0fa18ebc88f4861377206e0fa638b9f81
     ]
   }
 }
