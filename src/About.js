@@ -27,7 +27,7 @@ export default function About() {
         <div className="about-inner">
           <div className="about-image-wrap">
             <img
-              src="/image/plf.jpg"
+              src="/image/plf.JPG"
               alt="profile"
               className="about-image"
             />
