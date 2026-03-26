@@ -25,7 +25,7 @@ export default function Contact() {
           subject: form.subject,
           message: form.message,
         },
-        'YQDtej782-ApeLtqmbdpZ'     // ← EmailJSのPublic Key
+        '2hK9mfmK0lXyX7rO1'     // ← EmailJSのPublic Key
       );
       setSent(true);
     } catch (error) {
