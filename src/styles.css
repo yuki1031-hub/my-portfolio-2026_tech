@@ -535,7 +535,7 @@ ol {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 10;
-  object-fit: cover;
+  object-fit: contain;
   transition: filter var(--transition);
 }
 

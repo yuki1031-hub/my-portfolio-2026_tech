@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import works from "./data/works";
 
@@ -49,13 +49,66 @@ const S = {
     border: "1px solid rgba(255,255,255,0.2)",
     color: "rgba(255,255,255,0.55)",
   },
-  img: {
+  gifWrapper: {
+    position: "relative",
     width: "50%",
+    margin: "40px auto 0",
+    cursor: "zoom-in",
+  },
+  img: {
+    width: "100%",
     display: "block",
-    marginTop: "40px",
     borderRadius: "2px",
-    marginLeft: "auto",
-    marginRight: "auto",
+  },
+  gifHint: {
+    position: "absolute",
+    inset: 0,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "rgba(0,0,0,0)",
+    transition: "background 0.25s",
+    borderRadius: "2px",
+  },
+  gifHintLabel: {
+    fontSize: "0.7rem",
+    letterSpacing: "0.18em",
+    textTransform: "uppercase",
+    color: "#fff",
+    opacity: 0,
+    transition: "opacity 0.25s",
+    padding: "6px 14px",
+    border: "1px solid rgba(255,255,255,0.5)",
+    background: "rgba(0,0,0,0.5)",
+  },
+  lightboxBackdrop: {
+    position: "fixed",
+    inset: 0,
+    background: "rgba(0,0,0,0.88)",
+    zIndex: 9000,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "20px",
+  },
+  lightboxImg: {
+    maxWidth: "90vw",
+    maxHeight: "80vh",
+    borderRadius: "4px",
+    display: "block",
+  },
+  lightboxClose: {
+    fontFamily: "inherit",
+    fontSize: "0.78rem",
+    letterSpacing: "0.18em",
+    textTransform: "uppercase",
+    color: "rgba(255,255,255,0.6)",
+    background: "none",
+    border: "1px solid rgba(255,255,255,0.3)",
+    padding: "10px 28px",
+    cursor: "pointer",
+    transition: "color 0.2s, border-color 0.2s",
   },
   screenshots: {
     display: "grid",
@@ -133,6 +186,8 @@ const S = {
 export default function WorkDetail() {
   const { id } = useParams();
   const work = works.find((w) => w.id === id);
+  const [gifOpen, setGifOpen] = useState(false);
+  const [gifHover, setGifHover] = useState(false);
 
   if (!work) {
     return (
@@ -158,19 +213,41 @@ export default function WorkDetail() {
           ))}
         </div>
 
-        <img src={work.gif} alt="デモ" style={S.img} />
-
-        <div style={S.screenshots}>
-          <img src="/image/ss1.jpg" alt="スクリーンショット1" style={S.ssImg} />
-          <img src="/image/ss2.jpg" alt="スクリーンショット2" style={S.ssImg} />
-          <img src="/image/ss3.jpg" alt="スクリーンショット3" style={S.ssImg} />
+        <div
+          style={S.gifWrapper}
+          onClick={() => setGifOpen(true)}
+          onMouseEnter={() => setGifHover(true)}
+          onMouseLeave={() => setGifHover(false)}
+        >
+          <img src={work.gif} alt="デモ" style={S.img} />
+          <div style={{ ...S.gifHint, background: gifHover ? "rgba(0,0,0,0.35)" : "rgba(0,0,0,0)" }}>
+            <span style={{ ...S.gifHintLabel, opacity: gifHover ? 1 : 0 }}>tap to expand</span>
+          </div>
         </div>
+
+        {gifOpen && (
+          <div style={S.lightboxBackdrop} onClick={() => setGifOpen(false)}>
+            <img src={work.gif} alt="デモ拡大" style={S.lightboxImg} onClick={e => e.stopPropagation()} />
+            <button style={S.lightboxClose} onClick={() => setGifOpen(false)}>close</button>
+          </div>
+        )}
+
+        {work.screenshots && (
+          <div style={S.screenshots}>
+            {work.screenshots.map((src, i) => (
+              <img key={i} src={src} alt={`スクリーンショット${i + 1}`} style={S.ssImg} />
+            ))}
+          </div>
+        )}
 
         <hr style={S.divider} />
 
         <div>
           <p style={S.sectionLabel}>概要</p>
-          <p style={S.sectionText}>{work.description}</p>
+          {Array.isArray(work.description)
+            ? work.description.map((p, i) => <p key={i} style={S.sectionText}>{p}</p>)
+            : <p style={S.sectionText}>{work.description}</p>
+          }
         </div>
 
         <hr style={S.divider} />
@@ -184,29 +261,32 @@ export default function WorkDetail() {
           </ul>
         </div>
 
-        <hr style={S.divider} />
-
-        <div>
-          <p style={S.sectionLabel}>Lステップとの比較</p>
-          <table style={{ width: "100%", borderCollapse: "collapse" }}>
-            <thead>
-              <tr>
-                <th style={S.th}>項目</th>
-                <th style={{ ...S.th, textAlign: "center" }}>Lステップ</th>
-                <th style={{ ...S.th, textAlign: "center" }}>本作品</th>
-              </tr>
-            </thead>
-            <tbody>
-              {work.comparison.map((row) => (
-                <tr key={row.item}>
-                  <td style={S.td}>{row.item}</td>
-                  <td style={S.tdCenter}>{row.lstep}</td>
-                  <td style={S.tdCenter}>{row.custom}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        {work.comparison && (
+          <>
+            <hr style={S.divider} />
+            <div>
+              <p style={S.sectionLabel}>Lステップとの比較</p>
+              <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                <thead>
+                  <tr>
+                    <th style={S.th}>項目</th>
+                    <th style={{ ...S.th, textAlign: "center" }}>Lステップ</th>
+                    <th style={{ ...S.th, textAlign: "center" }}>本作品</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {work.comparison.map((row) => (
+                    <tr key={row.item}>
+                      <td style={S.td}>{row.item}</td>
+                      <td style={S.tdCenter}>{row.lstep}</td>
+                      <td style={S.tdCenter}>{row.custom}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
 
         <hr style={S.divider} />
 

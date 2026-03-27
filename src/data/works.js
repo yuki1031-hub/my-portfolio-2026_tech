@@ -1,13 +1,13 @@
 const works = [
   {
     id: 'line-bot',
-    title: '偉人性格診断 LINE Bot',
+    title: '偉人性格診断 LINE Bot(Node.js)',
     catchcopy: 'Lステップ不使用・DB連携・予約配信機能付き',
     description: 'LINEチャットボットをLステップを使わずNode.js + Supabaseで自作。9問4択の性格診断・DB連携・特定タイプへの予約配信・リッチメニューの出し分けを実装。',
     thumbnail: '/image/line-bot-thumb.png',
     gif: '/image/linebotdemo.gif',
     tags: ['Node.js', 'Express', 'LINE API', 'Supabase', 'Render'],
-    github: 'https://github.com/yuki1031-hub/line-bot',
+    github: 'https://github.com/yuki1031-hub/LINE-bot_LINEAPI_DB',
     features: [
       '9問4択のスコア方式による性格診断',
       'Flex Messageによるボタン形式UI',
@@ -23,6 +23,62 @@ const works = [
       { item: 'DB連携', lstep: '❌', custom: '✅' },
       { item: '予約配信', lstep: '✅', custom: '✅' },
       { item: 'AI連携', lstep: '❌', custom: '対応可' },
+    ],
+  },
+  {
+    id: 'LINELIFF',
+    title: '偉人性格診断 LINE Bot(React)',
+    catchcopy: 'LINE LIFF',
+    description:  [
+  'LINE LIFF 上で動作する「偉人タイプ診断」アプリケーションです。',
+  '歴史 × 診断: 「もし歴史上の偉人が現代にいたら？」という親しみやすいテーマで、ユーザーが楽しみながら触れるコンテンツを目指しました。',
+],
+    thumbnail: null,
+    gif: '/image/ijinliffdemo .gif',
+    tags: ['LINE LIFF', 'React'],
+    github: 'https://github.com/yuki1031-hub/LINE-bot-LIFF-react-',
+    features: [
+      'ユーザーの回答に合わせて歴史上の偉人を判定し、結果画像を生成・表示します。',
+      'LINEのトーク画面のような馴染みやすいUIを意識しました。',
+    ],
+  },
+  {
+    id: 'figmaplugin',
+    title: 'figma-layer-to-yaml-plugin',
+    catchcopy: 'Figma-plugin',
+    description: 'Figmaのデザイン（レイヤー構造）を解析し、チャットボット実装用のYAMLコードを自動生成するFigmaプラグインです。 業務における「デザインから実装への転記作業」を自動化するために開発しました。',
+    thumbnail: null,
+    gif: '/image/figmademo .gif',
+    tags: ['TypeScript', 'React','Figma Plugin API'],
+    github: 'https://github.com/yuki1031-hub/figma-layer-to-yaml-plugin',
+    features: [
+      'レイヤー構造の解析:GroupやFrameが何重にネストされていても、末端のTextノードまで取得します。',
+      'YAMLフォーマットへの自動変換: 独自の業務フォーマットに合わせて、適切なインデントと構文でコードを出力します。',
+      'ワンクリック・コピー: 生成されたコードをクリップボードに即座にコピーできます。',
+    ],
+  },
+  {
+    id: 'work3',
+    title: 'Work 3',
+    catchcopy: 'Coming Soon',
+    description: 'Coming Soon',
+    thumbnail: null,
+    gif: 'https://picsum.photos/seed/work3gif/600/400',
+    screenshots: [
+      'https://picsum.photos/seed/w3s1/400/300',
+      'https://picsum.photos/seed/w3s2/400/300',
+      'https://picsum.photos/seed/w3s3/400/300',
+    ],
+    tags: ['Python', 'FastAPI'],
+    github: '#',
+    features: [
+      'Feature 1',
+      'Feature 2',
+      'Feature 3',
+    ],
+    comparison: [
+      { item: '項目A', lstep: 'A', custom: 'B' },
+      { item: '項目B', lstep: 'C', custom: 'D' },
     ],
   },
 ];

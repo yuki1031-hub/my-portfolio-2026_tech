@@ -11,16 +11,17 @@ const LINES = [
 const TYPING_SPEED = 55;
 
 const WORKS = [
-  { 
-    id: 1, 
-    seed: 'work1', 
+  {
+    id: 1,
+    seed: 'work1',
     url: '/works/line-bot',
     thumbnail: '/image/linedb_thumbnail.png',
-    title: '偉人性格診断 LINE Bot',
+    title: '偉人性格診断 LINE Bot(Node.js)',
     tags: ['Node.js', 'Supabase', 'LINE API'],
   },
-  { id: 2, seed: 'work2', url: '#work-2', thumbnail: null, title: 'Coming Soon', tags: [] },
-  { id: 3, seed: 'work3', url: '#work-3', thumbnail: null, title: 'Coming Soon', tags: [] },
+  { id: 2, seed: 'work2', url: '/works/LINELIFF', thumbnail: '/image/lineliffthum.png', title: '偉人性格診断 LINE Bot(React)', tags: ['LINE LIFF', 'React'] },
+  { id: 3, seed: 'work3', url: '/works/figmaplugin', thumbnail: '/image/figmath.png', title: 'figma-layer-to-yaml-plugin', tags: ['TypeScript', 'React', 'Figma Plugin API'] },
+  { id: 4, seed: 'work4', url: '/works/work3', thumbnail: null, title: 'Work 3', tags: ['Python', 'FastAPI'] },
 ];
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
