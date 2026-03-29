@@ -11,17 +11,17 @@ const LINES = [
 const TYPING_SPEED = 55;
 
 const WORKS = [
+  { id: 4, seed: 'work4', url: 'https://flying-glazer-dfd.notion.site/33091932982b8002a261c74a62821edc?source=copy_link', thumbnail: '/image/snckth2.png', title: 'LINE Voice CRM', tags: ['LINE Messaging API', 'Node.js', 'OpenAI API', 'Google Sheets API'] },
+  { id: 2, seed: 'work2', url: '/works/LINELIFF', thumbnail: '/image/lineliffthum.png', title: 'LINE Score-Based Diagnosis Bot(React)', tags: ['LINE LIFF', 'React'] },
+  { id: 3, seed: 'work3', url: '/works/figmaplugin', thumbnail: '/image/figmath.png', title: 'figma-layer-to-yaml-plugin', tags: ['TypeScript', 'React', 'Figma Plugin API'] },
   {
     id: 1,
     seed: 'work1',
     url: '/works/line-bot',
     thumbnail: '/image/linedb_thumbnail.png',
-    title: '偉人性格診断 LINE Bot(Node.js)',
+    title: 'LINE Score-Based Diagnosis Bot(Node.js)',
     tags: ['Node.js', 'Supabase', 'LINE API'],
   },
-  { id: 2, seed: 'work2', url: '/works/LINELIFF', thumbnail: '/image/lineliffthum.png', title: '偉人性格診断 LINE Bot(React)', tags: ['LINE LIFF', 'React'] },
-  { id: 3, seed: 'work3', url: '/works/figmaplugin', thumbnail: '/image/figmath.png', title: 'figma-layer-to-yaml-plugin', tags: ['TypeScript', 'React', 'Figma Plugin API'] },
-  { id: 4, seed: 'work4', url: '/works/work3', thumbnail: null, title: 'Work 3', tags: ['Python', 'FastAPI'] },
 ];
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -123,7 +123,11 @@ export default function Home() {
     </div>
     {activeCard === work.id && (
       <div className="works-card__overlay">
-        <Link to={work.url} className="works-card__more">more</Link>
+        {work.url.startsWith('http') ? (
+          <a href={work.url} className="works-card__more" target="_blank" rel="noopener noreferrer">more</a>
+        ) : (
+          <Link to={work.url} className="works-card__more">more</Link>
+        )}
         <button
           className="works-card__close"
           onClick={() => setActiveCard(null)}
