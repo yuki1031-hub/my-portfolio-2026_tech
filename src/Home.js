@@ -11,6 +11,7 @@ const LINES = [
 const TYPING_SPEED = 55;
 
 const WORKS = [
+  { id: 5, seed: 'work5', url: 'https://flying-glazer-dfd.notion.site/LINE-RAG-33b91932982b80ec9bd8f9c9924855c1?source=copy_link', thumbnail: '/image/ragbot_th_teck.png', title: 'Instant Internal Docs Rag Bot', tags: ['Python', 'LangChain', 'OpenAI', 'FAISS', 'Streamlit'] },
   { id: 4, seed: 'work4', url: 'https://flying-glazer-dfd.notion.site/33091932982b8002a261c74a62821edc?source=copy_link', thumbnail: '/image/snckth2.png', title: 'LINE Voice CRM', tags: ['LINE Messaging API', 'Node.js', 'OpenAI API', 'Google Sheets API'] },
   { id: 2, seed: 'work2', url: '/works/LINELIFF', thumbnail: '/image/lineliffthum.png', title: 'LINE Score-Based Diagnosis Bot(React)', tags: ['LINE LIFF', 'React'] },
   { id: 3, seed: 'work3', url: '/works/figmaplugin', thumbnail: '/image/figmath.png', title: 'figma-layer-to-yaml-plugin', tags: ['TypeScript', 'React', 'Figma Plugin API'] },
